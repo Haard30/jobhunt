@@ -1,0 +1,170 @@
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
+    <div class="w3-container">
+        <a href="#" onclick="w3_close()" class="w3-hide-large w3-right w3-jumbo w3-padding w3-hover-grey"
+            title="close menu">
+            <i class="fa fa-remove"></i>
+        </a>
+        <img src="/images/user_icon.png" style="width:45%;" class="w3-round"><br><br>
+        <h4><b>Dash Menu</b></h4>
+
+    </div>
+    <div class="w3-bar-block">
+        <a href="/userHome" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i
+                class="fa fa-th-large fa-fw w3-margin-right"></i>Post a job</a>
+        <a href="/employerSearch" onclick="w3_close()" class="w3-bar-item w3-button w3-padding  w3-text-teal"><i
+                class="fa fa-th-large fa-fw w3-margin-right"></i>Search applicants for a job</a>
+        <a href="/employerOffer" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i
+                class="fa fa-th-large fa-fw w3-margin-right"></i>Make offer/ Reject</a>
+        <a href="/">
+            <button class="w3-button w3-black" style="margin-left: 5%; margin-top: 5%;">Logout</button>
+        </a>
+    </div>
+    <div class="w3-panel w3-large">
+        <i class="fa fa-facebook-official w3-hover-opacity"></i>
+        <i class="fa fa-instagram w3-hover-opacity"></i>
+        <i class="fa fa-snapchat w3-hover-opacity"></i>
+        <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+        <i class="fa fa-twitter w3-hover-opacity"></i>
+        <i class="fa fa-linkedin w3-hover-opacity"></i>
+    </div>
+    <br />
+    <!-- Advertising -->
+    <div class="w3-white w3-margin">
+        <div class="w3-container w3-padding w3-black">
+            <h4>Advertise</h4>
+        </div>
+        <div class="w3-container w3-white">
+            <div class="w3-container w3-display-container w3-light-grey w3-section" style="height:200px">
+                <a href="https://javamoose.com/" target="_blank">
+                    <img src="/images/cof_ad.png" style="width:100%;">
+                </a>
+            </div>
+        </div>
+    </div>
+
+</nav>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer"
+    title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:300px">
+    <header id="portfolio">
+        <a href="#"><img src="/w3images/avatar_g2.jpg" style="width:65px;"
+                class="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity"></a>
+        <span class="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()"><i
+                class="fa fa-bars"></i></span>
+        <div class="w3-container">
+            <h1><b>Search Applicants</b>
+            </h1>
+        </div>
+    </header>
+    <hr />
+    <div class="mb-3" style="overflow: auto;margin-bottom: 20%;">
+        <div class="mb-3" style="margin-top: 7vh; overflow: auto;">
+            <div class="col-sm-6 col-md-6 col-lg-8 mx-auto" style="height: 59vh;">
+              <center><h3>Search Applicant</h1></center>
+          
+              <div class="card border-dark">
+                <div class="card-body">
+                  <form class="needs-validation" method="POST" action="/searchApplicants">
+                    <label for="lblpartid">Job Reference Number</label>
+                    <input
+                      class="form-control"
+                      name="txtproduct"
+                      placeholder="Enter Job Refrence Number"
+                      required
+                    />
+          
+                    <br />
+          
+                    <button class="btn btn-primary" type="submit">Search</button>
+                  </form>
+                </div>
+              </div>
+          
+              <br />
+          
+              <% if (typeof applicants != 'undefined'){ if (applicants == null ) { %>
+          
+              <div class="card border-danger bg-danger">
+                <div class="card-body mx-auto">
+                  <p class="card-text text-white">
+                    No such job available.
+                  </p>
+                </div>
+              </div>
+          
+              <% } else { %>
+          
+                <div >
+                    <table class="table table-bordered">
+                      <thead class="table-dark">
+                        <tr>
+                          <th scope="col">Applicant name</th>
+                          <th scope="col">Applicant Skills</th>
+                          <th scope="col">Work Experience</th>
+                          <th scope="col">View Resume</th>
+                          <th scope="col">Show Interest</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tbody>
+                            <% applicants.forEach(function(singleData){ %>
+                                <tr>
+                                <td> <%= singleData.name%> </td>
+                                <td> <%= singleData.skills%> </td>
+                                <td> <%= singleData.work_experience %> </td>
+                                <td> <a href="https://drive.google.com/file/d/1wW65KFys6FSSyd7PLZGaPVOqLgHGAza5/view?usp=sharing" target="_blank"> View Resume </a></td>
+                                <td>                <script type="text/javascript">
+                                    function likeFunction(x) {
+                                        x.style.fontWeight = "bold";
+                                        x.innerHTML = "✓ Interest Notified";
+                                    }
+                                </script>
+                                <p><button type="button" class="w3-button w3-white w3-border"
+                                        onclick="likeFunction(this)">Show interest</button></p></td>
+                                </tr>
+                                <% }) %>
+                          
+                      </tbody>
+                    </table>
+                
+                  </div>
+              <% } }%>  
+            </div>  
+          </div>
+        <br />
+        <br />
+        <br />
+    <div class="w3-black w3-center w3-padding-24">Powered by: jobHunt.stream() | Theme Credits: w3schools</a></div>
+
+    <!-- End page content -->
+</div>
+
+<script>
+    // Script to open and close sidebar
+    function w3_open() {
+        document.getElementById("mySidebar").style.display = "block";
+        document.getElementById("myOverlay").style.display = "block";
+    }
+
+    function w3_close() {
+        document.getElementById("mySidebar").style.display = "none";
+        document.getElementById("myOverlay").style.display = "none";
+    }
+    function likeFunction(x) {
+        x.style.fontWeight = "bold";
+        x.innerHTML = "✓ Liked";
+    }
+    function fchange();
+    {
+        document.getElementById("fskill").value = "Python";
+    }
+</script>
+
+</body>
+
+</html>

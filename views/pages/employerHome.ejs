@@ -1,0 +1,181 @@
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
+    <div class="w3-container">
+        <a href="employerOffer" onclick="w3_close()" class="w3-hide-large w3-right w3-jumbo w3-padding w3-hover-grey"
+            title="close menu">
+            <i class="fa fa-remove"></i>
+        </a>
+        <img src="/images/user_icon.png" style="width:45%;" class="w3-round"><br><br>
+        <h4><b>Dash Menu</b></h4>
+
+    </div>
+    <div class="w3-bar-block">
+        <a href="/userHome" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-teal"><i
+            class="fa fa-th-large fa-fw w3-margin-right"></i>Post a job</a>
+    <a href="/employerSearch" onclick="w3_close()" class="w3-bar-item w3-button w3-padding "><i
+            class="fa fa-th-large fa-fw w3-margin-right"></i>Search applicants for a job</a>
+    <a href="/employerOffer" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i
+            class="fa fa-th-large fa-fw w3-margin-right"></i>Make offer/ Reject</a>
+        <a href="/">
+            <button class="w3-button w3-black" style="margin-left: 5%; margin-top: 5%;">Logout</button>
+        </a>
+    </div>
+    <div class="w3-panel w3-large">
+        <i class="fa fa-facebook-official w3-hover-opacity"></i>
+        <i class="fa fa-instagram w3-hover-opacity"></i>
+        <i class="fa fa-snapchat w3-hover-opacity"></i>
+        <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+        <i class="fa fa-twitter w3-hover-opacity"></i>
+        <i class="fa fa-linkedin w3-hover-opacity"></i>
+    </div>
+    <br />
+    <!-- Advertising -->
+    <div class="w3-white w3-margin">
+        <div class="w3-container w3-padding w3-black">
+            <h4>Advertise</h4>
+        </div>
+        <div class="w3-container w3-white">
+            <div class="w3-container w3-display-container w3-light-grey w3-section" style="height:200px">
+                <a href="https://javamoose.com/" target="_blank">
+                    <img src="/images/cof_ad.png" style="width:100%;">
+                </a>
+            </div>
+        </div>
+    </div>
+
+</nav>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer"
+    title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:300px">
+    <header id="portfolio">
+        <a href="#"><img src="/w3images/avatar_g2.jpg" style="width:65px;"
+                class="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity"></a>
+        <span class="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()"><i
+                class="fa fa-bars"></i></span>
+        <div class="w3-container">
+            <h1><b>Post a job</b>
+            </h1>
+        </div>
+    </header>
+    <hr/>
+    <div class="mb-3" style="overflow: auto;margin-bottom: 20%;">
+        <div class="card border-dark" style="height: 50%; width: 50%;align-self: center; align-content: center;margin-left: 10%;" >
+          <div class="card-body" >
+    <form class="needs-validation" method="POST" action="/submitJob">
+        <label for="lblpartid">Job Reference Number </label>
+      <input
+        class="form-control"
+        name="txtjobref"
+        type="text"
+        placeholder="Enter your reference number"
+        required
+      />
+      <br />
+      <label for="lblfname">Job Title  </label>
+      <input
+        class="form-control"
+        name="txtjobtitle"
+        type="text"
+        placeholder="Enter job Title"
+        required
+      />
+
+      <br />
+      <label for="lbllname">Job Requirements  </label>
+      <textarea
+        class="form-control"
+        name="txtjobreq"
+        placeholder="Enter the requirements"
+        required
+        rows="5"
+        cols="40"> </textarea>
+
+
+      <br />
+      <label for="lbllname">Tech Stack  </label>
+      <textarea
+        class="form-control"
+        name="txtjobtech"
+        placeholder="Enter the technologies used"
+        required
+        rows="2"
+        cols="40"> </textarea>
+
+
+      
+      <br />
+      <label for="rtype">Deadline:</label> <br />
+      <input class="form-control"
+      type="date"
+      min="2020-11-30"
+      id="jobdead"
+      name="jobdead">
+
+
+        <br />
+        <button class="w3-button w3-block w3-padding-large w3-black w3-margin-bottom" type="submit">Submit Job</button>
+      </form>
+      </div>
+      </div>
+    </div>
+    <div class="card-body" >
+
+        <% if (typeof error != 'undefined' ) { %>
+
+            <div class="card border-danger bg-danger">
+              <div class="card-body mx-auto">
+                <p class="card-text text-white">
+                  <%= error %>
+                </p>
+              </div>
+            </div>
+        
+            <% } else { %>
+                <% if (typeof success != 'undefined' ) { %>
+            <div class="card border-success bg-success" style="width: 50%;margin-left: 10%;">
+              <div class="card-body mx-auto">
+                <p class="card-text text-white">
+                
+                  <%= success %>
+                
+                </p>
+              </div>
+            </div>
+            <% } %>  
+            <% } %>  
+            <br />
+    </div>
+
+    <div class="w3-black w3-center w3-padding-24">Powered by: jobHunt.stream() | Theme Credits: w3schools</a></div>
+
+    <!-- End page content -->
+</div>
+
+<script>
+    // Script to open and close sidebar
+    function w3_open() {
+        document.getElementById("mySidebar").style.display = "block";
+        document.getElementById("myOverlay").style.display = "block";
+    }
+
+    function w3_close() {
+        document.getElementById("mySidebar").style.display = "none";
+        document.getElementById("myOverlay").style.display = "none";
+    }
+    function likeFunction(x) {
+        x.style.fontWeight = "bold";
+        x.innerHTML = "✓ Liked";
+    }
+    function fchange();
+    {
+        document.getElementById("fskill").value = "Python";
+    }
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<div class="w3-bar w3-black w3-hide-small">
+  <a href="#" class="w3-bar-item w3-button"><i class="fa fa-facebook-official"></i></a>
+  <a href="#" class="w3-bar-item w3-button"><i class="fa fa-instagram"></i></a>
+  <a href="#" class="w3-bar-item w3-button"><i class="fa fa-snapchat"></i></a>
+  <a href="#" class="w3-bar-item w3-button"><i class="fa fa-flickr"></i></a>
+  <a href="#" class="w3-bar-item w3-button"><i class="fa fa-twitter"></i></a>
+  <a href="#" class="w3-bar-item w3-button"><i class="fa fa-linkedin"></i></a>
+</div>  
+  
+  <!-- Header -->
+  <header class="w3-container w3-center w3-padding-48 w3-white" style="margin-bottom: 0%;">
+    <h1 class="w3-xxxlarge"><b>jobHunt.stream()</b></h1>
+    <h6>Streamlining <span class="w3-tag"> Recruitment</span></h6>
+  </header>
+  
+<div class="mb-3" style="margin-top: 5%; overflow: auto;margin-bottom: 20%;">
+  <div class="card border-dark" style="height: 50%; width: 35%;align-self: center; align-content: center;margin-left: 35%;" >
+    <div class="w3-container w3-padding w3-black">
+      <h4>Login</h4>
+    </div>
+    <div class="card-body" >
+      <form class="needs-validation" method="POST" action="/twoFactor">
+        <label for="lblpartid">Email ID </label>
+        <input
+          class="form-control"
+          name="txtemailid"
+          type="email"
+          placeholder="Enter your email id"
+          required
+        />
+        <br />
+        <label for="lblpartid">Password </label>
+        <input
+          class="form-control"
+          name="txtpassword"
+          type = "password"
+          placeholder="Enter your pasword"
+          maxlength="64"
+          required
+        />
+        <br />
+
+        <button class="w3-button w3-block w3-padding-large w3-black w3-margin-bottom" type="submit">Login</button>
+      </form>
+      <br />
+      <a href="/registerUser">New user? Register Here</a>
+    </div>
+  </div>
+  
+  <% if (typeof error != 'undefined'){ if (error != null || error != "") { %>
+  
+    <div class="card border-danger bg-danger" style="width: 35%; margin-left: 35%; margin-top: 1%; height: 1%;">
+      <div class="card-body mx-auto"> 
+        <p class="card-text text-white">
+          <%= error %>
+        </p>
+      </div>
+    </div>
+
+    <% } %>
+
+    <% } %>  
+ 
+</div>

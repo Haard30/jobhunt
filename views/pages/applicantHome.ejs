@@ -1,0 +1,161 @@
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
+  <div class="w3-container">
+    <a href="#" onclick="w3_close()" class="w3-hide-large w3-right w3-jumbo w3-padding w3-hover-grey" title="close menu">
+      <i class="fa fa-remove"></i>
+    </a>
+    <img src="/images/user_icon.png" style="width:45%;" class="w3-round"><br><br>
+    <h4><b>Dash Menu</b></h4>
+    
+  </div>
+  <div class="w3-bar-block">
+    <a href="/userHome" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-teal"><i class="fa fa-th-large fa-fw w3-margin-right"></i>Portfolio</a> 
+    <a href="/applicantSearch" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-th-large fa-fw w3-margin-right"></i>Apply for jobs</a> 
+    <a href="/applicantProcess" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-th-large fa-fw w3-margin-right"></i>Applications in process</a>
+    <a href="/applicantResources" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i
+      class="fa fa-th-large fa-fw w3-margin-right"></i>Link to resources</a>
+    <a href="/">
+        <button class="w3-button w3-black" style="margin-left: 5%; margin-top: 5%;">Logout</button>
+    </a>
+  </div>
+  <div class="w3-panel w3-large">
+    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-snapchat w3-hover-opacity"></i>
+    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+    <i class="fa fa-twitter w3-hover-opacity"></i>
+    <i class="fa fa-linkedin w3-hover-opacity"></i>
+  </div>
+  <br />
+        <!-- Advertising -->
+        <div class="w3-white w3-margin">
+            <div class="w3-container w3-padding w3-black">
+              <h4>Advertise</h4>
+            </div>
+            <div class="w3-container w3-white">
+              <div class="w3-container w3-display-container w3-light-grey w3-section" style="height:200px">
+                <a href="https://www.swiggy.com/" target="_blank">
+                <img src="/images/ads.png" style="width:100%;" >
+            </a>
+              </div>
+            </div>
+          </div>
+  
+</nav>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:300px">
+
+  <!-- Header -->
+  <header id="portfolio">
+    <a href="#"><img src="/w3images/avatar_g2.jpg" style="width:65px;" class="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity"></a>
+    <span class="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()"><i class="fa fa-bars"></i></span>
+    <div class="w3-container">
+    <h1><b>My Portfolio</b>
+    </h1>
+    <div class="w3-section w3-bottombar w3-padding-16">
+      
+    </div>
+    </div>
+  </header>
+  
+  
+  <div class="w3-container w3-padding-large" style="margin-bottom:32px">
+    <h4><b>About Me</b></h4>
+    <p>Just me, myself and I, exploring the universe of unknownment. I have a heart of love and an interest of lorem ipsum and mauris neque quam blog. I want to share my world with you. Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla. Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+    <hr>
+    <form method="POST" action="/applicantSubmit">
+    <h4>My Documents</h4>
+    <!-- Progress bars / Skills -->
+    <p>Resume</p>
+    <input type="file" class="w3-button w3-dark-grey w3-padding-large w3-margin-top w3-margin-bottom" 
+    id="resume" name="Upload Resume"> 
+      
+      <p>Lay off/ Resignation Letter</p>
+      <input type="file" class="w3-button w3-dark-grey w3-padding-large w3-margin-top w3-margin-bottom" 
+      id="resume" name="Upload Letter"> 
+      <p>Cover Letter</p>
+      <input type="file" class="w3-button w3-dark-grey w3-padding-large w3-margin-top w3-margin-bottom" 
+      id="resume" name="Upload Cover Letter"> 
+    <hr>
+    
+    <h4>My Skills</h4>
+    <!-- Pricing Tables -->
+    <div class="w3-row-padding" style="margin:0 -16px">
+      <div class="w3-third w3-margin-bottom">
+        <ul class="w3-ul w3-border w3-white w3-center w3-opacity w3-hover-opacity-off">
+          <li id="fskill" class="w3-black w3-xlarge w3-padding-32">Node.js</li>
+          <li class="w3-light-grey w3-padding-24">
+            <button class="w3-button w3-teal w3-padding-large w3-hover-black" onclick="fchange()" >Edit</button>
+          </li>
+        </ul>
+      </div>
+      
+      <div class="w3-third w3-margin-bottom">
+        <ul class="w3-ul w3-border w3-white w3-center w3-opacity w3-hover-opacity-off">
+          <li class="w3-teal w3-xlarge w3-padding-32">Java</li>
+          <li class="w3-light-grey w3-padding-24">
+            <button class="w3-button w3-teal w3-padding-large w3-hover-black">Edit</button>
+          </li>
+        </ul>
+      </div>
+      
+      <div class="w3-third">
+        <ul class="w3-ul w3-border w3-white w3-center w3-opacity w3-hover-opacity-off">
+          <li class="w3-black w3-xlarge w3-padding-32">Docker</li>
+          <li class="w3-light-grey w3-padding-24">
+            <button class="w3-button w3-teal w3-padding-large w3-hover-black">Edit</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <hr>
+    <h4>Terms And Conditions: Legal Agreement of payments</h4>
+    <p>I agree to all the conditions listed for using this website. I consent to give 5% of my third income
+        if I accept an offer through this application</p>
+        <label for="aggree">Select:</label> <br />
+        <select id="aggree" name="aagree" class="form-control">
+          <option value="accept">Accept</option>
+          <option value="reject">Reject</option>
+        </select>
+        <br/>
+        <br />
+        <button class="w3-button w3-block w3-padding-large w3-black w3-margin-bottom" type="submit">Submit</button>
+        
+  </div>
+</form>
+    
+
+
+  
+  <div class="w3-black w3-center w3-padding-24">Powered by: jobHunt.stream() | Theme Credits: w3schools</a></div>
+
+<!-- End page content -->
+</div>
+
+<script>
+// Script to open and close sidebar
+function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+    document.getElementById("myOverlay").style.display = "block";
+}
+ 
+function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+    document.getElementById("myOverlay").style.display = "none";
+}
+function likeFunction(x) {
+  x.style.fontWeight = "bold";
+  x.innerHTML = "✓ Liked";
+}
+function fchange();
+{
+    document.getElementById("fskill").value="Python";
+}
+</script>
+
+</body>
+</html>
